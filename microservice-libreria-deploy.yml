@@ -3,26 +3,26 @@ kind: Deployment
 metadata:
   name: microservice-libreria-deploy
   labels:
-    name: microservices-libreria-deploy
-	app: microservice
+    name: microservice-libreria-deploy
+    app: microservice
 spec:
   replicas: 2
   selector:
     matchLabels:
       app: microservice-libreria
-	  type: microservices
+      type: microservice
   template:
     metadata:
       name: microservice-libreria-pod
-	  labels:
-	    app: microservice-libreria
-		type: microservices
-	spec:
-	  container:
+      labels:
+        app: microservice-libreria
+        type: microservice
+    spec:
+      containers:
         - name: microservice-libreria-app
-		  image: oresteslacunza/serviciosapilibreria:latest
-		  ports:
-		    - containerPort: 80
-		  env:
-		    - name: MongoDb__ConnectionString
-			  value: mongodb://olacunza:murcielago147@mongo-service:27017
+          image: oresteslacunza/serviciosapilibreria
+          ports:
+            - containerPort: 80
+          env:
+            - name: MongoDb__ConnectionString
+              value: mongodb://olacunza:murcielago147@mongo-service:27017
