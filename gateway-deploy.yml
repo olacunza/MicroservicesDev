@@ -20,6 +20,6 @@ spec:
     spec:
      containers:
       - name: gateway-app
-        image: oresteslacunza/serviciosapigateway:latest
+        image: oresteslacunza/serviciosapigateway:v2.#{Build.BuildId}#
         ports:
           - containerPort: 80
